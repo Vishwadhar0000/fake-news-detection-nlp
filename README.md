@@ -34,3 +34,22 @@ Graph Convolutional Network (GCNConv -> ReLU -> Dropout -> GCNConv)
       │
       ▼
 Transductive Semi-Supervised Node Classification
+
+---
+
+## 📊 Empirical Evaluation (Test Split: 1,000 Nodes)
+
+| Metric | True News (Class 0) | Fake News (Class 1) | Macro Average |
+| :--- | :---: | :---: | :---: |
+| **Precision** | 0.90 | 0.93 | **0.91** |
+| **Recall** | 0.93 | 0.89 | **0.91** |
+| **F1-Score** | 0.91 | 0.91 | **0.91** |
+| **Accuracy** | — | — | **91.20%** |
+
+### Training Dynamics
+- **Optimization:** Adam optimizer ($lr=0.01$, $weight\_decay=5e-4$) with Cross-Entropy Loss.
+- **Convergence:** Training loss dropped from `0.4161` (Epoch 10) to `0.2480` (Epoch 100).
+- **Evaluation Split:** Evaluated on a transductive test mask of 1,000 unseen document nodes (496 True / 504 Fake) with dropout regularization ($p=0.5$).
+
+
+
